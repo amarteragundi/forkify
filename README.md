@@ -1,2 +1,2 @@
-# forkify
+# Forkify
 Recipe App
