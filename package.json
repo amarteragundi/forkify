@@ -1,0 +1,22 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "forkify preoject",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amarteragundi/forkify.git"
+  },
+  "author": "Amar Teragundi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amarteragundi/forkify/issues"
+  },
+  "homepage": "https://github.com/amarteragundi/forkify#readme",
+  "devDependencies": {
+    "webpack": "^4.30.0"
+  }
+}
