@@ -1,7 +1,7 @@
 {
   "name": "forkify",
   "version": "1.0.0",
-  "description": "forkify preoject",
+  "description": "An app to find recipes",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
