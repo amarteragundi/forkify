@@ -1,3 +1,5 @@
+// Author : Amar Teragundi
+
 import Search from './models/Search';
 import * as searchView from './views/searchView.js';
 import { elements, renderLoader, clearloader } from './views/base';
