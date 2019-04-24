@@ -28,15 +28,15 @@ const controlSearch = async () => {
 		// 3. prepare UI for results
 		searchView.clearInput();
 		searchView.clearResults();
-		renderLoader(elements.searchRes)
+		renderLoader(elements.searchRes);
 		try{
 			// 4. search for recipes
-			await state.search.getResults()	
+			await state.search.getResults();	
 			clearloader();
 			// 5. render results to UI
-			searchView.renderResults(state.search.result)
+			searchView.renderResults(state.search.result);
 		} catch{
-			alert('something went wrong :(')
+			alert('something went wrong :(');
 		}
 	}
 }
@@ -60,7 +60,7 @@ elements.searchResPages.addEventListener('click', e => {
 const controlRecipe = async () => {
 	//  get id from url
 	const id = window.location.hash.replace('#', '');
-	console.log(id)
+	console.log(id);
 
 	if(id){
 		// prepare UI for changes
@@ -78,10 +78,11 @@ const controlRecipe = async () => {
 
 			// render recipe
 		} catch{
-			alert('Somthing went wrong :(')
+			alert('Somthing went wrong :(');
 		}
 		
 	}
 }
 
-['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe))
+// event listeners
+['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe));
