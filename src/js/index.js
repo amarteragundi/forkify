@@ -54,9 +54,25 @@ elements.searchResPages.addEventListener('click', e => {
 
 // * controller to fetch and display single recipe
 
-const controlRecipe = () => {
+const controlRecipe = async () => {
+	//  get id from url
 	const id = window.location.hash.replace('#', '');
 	console.log(id)
+
+	if(id){
+		// prepare UI for changes
+
+		// create new Recipe object
+		state.recipe = new Recipe(id);
+
+		// get recipe data
+		await state.recipe.getRecipe();
+		
+		// calc time and calc servings
+
+		// render recipe
+
+	}
 }
 
 window.addEventListener('hashchange', controlRecipe);
