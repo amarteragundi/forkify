@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {apiConfig} from './config'
+import {apiConfig} from './Config'
 export default class Search {
 		constructor(query){
 			this.query = query;
