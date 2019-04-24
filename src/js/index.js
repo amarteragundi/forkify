@@ -71,11 +71,11 @@ const controlRecipe = async () => {
 		// calc time and calc servings
 		state.recipe.calcTime();
 		state.recipe.calcServings();
-		
 
 		// render recipe
-
 	}
 }
 
 window.addEventListener('hashchange', controlRecipe);
+
+window.addEventListener('load', controlRecipe);
