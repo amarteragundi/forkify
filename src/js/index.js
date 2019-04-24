@@ -76,4 +76,4 @@ const controlRecipe = async () => {
 	}
 }
 
-['hashchange', 'load'].forEach(e => window.addEventListener(event, controlRecipe))
+['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe))
