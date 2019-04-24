@@ -1,9 +1,9 @@
 // Author : Amar Teragundi
 
 import Search from './models/Search';
-import * as searchView from './views/searchView.js';
+import * as searchView from './views/searchView';
 import { elements, renderLoader, clearloader } from './views/base';
-import recipe from './models/Recipe'
+import Recipe from './models/Recipe'
 
 /** Global state of the app
  * - Search object
