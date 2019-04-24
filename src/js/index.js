@@ -54,8 +54,9 @@ elements.searchResPages.addEventListener('click', e => {
 
 // * controller to fetch and display single recipe
 
-const controlRecipe () => {
-
+const controlRecipe = () => {
+	const id = window.location.hash.replace('#', '');
+	console.log(id)
 }
 
 window.addEventListener('hashchange', controlRecipe);
