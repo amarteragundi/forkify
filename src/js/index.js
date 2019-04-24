@@ -52,4 +52,10 @@ elements.searchResPages.addEventListener('click', e => {
     }
 });
 
-// * controller for single recipe
+// * controller to fetch and display single recipe
+
+const controlRecipe () => {
+
+}
+
+window.addEventListener('hashchange', controlRecipe);
