@@ -46,6 +46,9 @@ export default class Recipe {
             ingredient = ingredient.replace(/ *\([^)]*\) */g, ' ');
 
             // parse ingredients into count
+            const arrIng =  ingredient.split(' ');
+            const unitIndex = arrIng.findIndex(el2 => unitsShort.includes(el2));
+
 
             return ingredient;
         });
