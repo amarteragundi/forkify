@@ -49,8 +49,42 @@ export default class Recipe {
             const arrIng =  ingredient.split(' ');
             const unitIndex = arrIng.findIndex(el2 => unitsShort.includes(el2));
 
+            let objIng; 
 
-            return ingredient;
+            if(unitIndex > -1){
+                // there is a unit
+                const arrCount = arrIng.slice(0, unitIndex);
+                let count;
+                if(arrCount.length === 1) {
+                    count = arrIng[0].replace('-','+');
+                } else {
+                    count = eval(arrIng.slice(0, unitIndex).join('+'));
+                }
+
+                objIng = {
+                    count,
+                    unit : arrIng[unitIndex],
+                    ingredient: arrIng.slice(unitIndex + 1).join(' ')
+                }
+
+            } else if(parseInt(arrIng[0], 10)){
+                // no unit but there is a number
+                objIng = {
+                    count : 1,
+                    unit : '',
+                    ingredient
+                }
+            }else if(unitIndex === -1){
+                // no unit no number
+                objIng = {
+                    count : parseInt(arrIng[0], 10),
+                    unit : '',
+                    ingredient : arrIng.slice(1).join(' ')
+                }
+            }
+
+
+            return objIng;
         });
 
         this.ingredients = newIngredients;
