@@ -90,10 +90,3 @@ export default class Recipe {
         this.ingredients = newIngredients;
     }
 }
-
-// 0: "4 1/2 cups (20.25 ounces) unbleached high-gluten, bread, or all-purpose flour, chilled"
-// 1: "1 3/4 (.44 ounce) teaspoons salt"
-// 2: "1 teaspoon (.11 ounce) instant yeast"
-// 3: "1/4 cup (2 ounces) olive oil (optional)"
-// 4: "1 3/4 cups (14 ounces) water, ice cold (40F)"
-// 5: "Semolina flour OR cornmeal for dusting"
