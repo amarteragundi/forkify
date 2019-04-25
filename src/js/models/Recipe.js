@@ -38,12 +38,16 @@ export default class Recipe {
             // 1. uniform units
             let ingredient = el.toLowerCase();
 
-            unitsLong.forEach((unit, i) {
-                ingredient.replace(unit, unitsShort[i])
-            })
+            unitsLong.forEach((unit, i) => {
+                ingredient = ingredient.replace(unit, unitsShort[i]);
+            });
+
             //  Remove ()
+            ingredient = ingredient.replace(/ *\([^)]*\) */g, ' ');
 
             // parse ingredients into count
+
+            return ingredient;
         });
 
         this.ingredients = newIngredients;
