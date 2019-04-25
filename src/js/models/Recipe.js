@@ -72,14 +72,14 @@ export default class Recipe {
                 objIng = {
                     count : parseInt(arrIng[0], 10),
                     unit : '',
-                    ingredient
+                    ingredient : arrIng.slice(1).join(' ')
                 }
             }else if(unitIndex === -1){
                 // no unit no number
                 objIng = {
                     count : 1,
                     unit : '',
-                    ingredient : arrIng.slice(1).join(' ')
+                    ingredient
                 }
             }
 
