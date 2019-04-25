@@ -3,7 +3,8 @@
 import Search from './models/Search';
 import * as searchView from './views/searchView';
 import { elements, renderLoader, clearloader } from './views/base';
-import Recipe from './models/Recipe'
+import Recipe from './models/Recipe';
+import * as recipeView from './views/recipeView';
 
 /** Global state of the app
  * - Search object
