@@ -29,4 +29,30 @@ export default class Recipe {
     calcServings(){
         this.servings = 4;
     }
+
+    parseIngredients() {
+        const unitsLong = ['tablespoon', 'tablespoon', 'ounce', 'ounces', 'teaspoon', 'teaspoons', 'cups', 'pounds'];
+        const unitsShort = ['tbsp', 'tbsp' , 'oz', 'oz', 'tsp', 'tsp', 'cup', 'pound']
+
+        const newIngredients = this.ingredients.map(el => {
+            // 1. uniform units
+            let ingredient = el.toLowerCase();
+
+            unitsLong.forEach((unit, i) {
+                ingredient.replace(unit, unitsShort[i])
+            })
+            //  Remove ()
+
+            // parse ingredients into count
+        });
+
+        this.ingredients = newIngredients;
+    }
 }
+
+// 0: "4 1/2 cups (20.25 ounces) unbleached high-gluten, bread, or all-purpose flour, chilled"
+// 1: "1 3/4 (.44 ounce) teaspoons salt"
+// 2: "1 teaspoon (.11 ounce) instant yeast"
+// 3: "1/4 cup (2 ounces) olive oil (optional)"
+// 4: "1 3/4 cups (14 ounces) water, ice cold (40F)"
+// 5: "Semolina flour OR cornmeal for dusting"
