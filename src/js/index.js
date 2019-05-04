@@ -15,7 +15,7 @@ import * as listView from './views/listView';
  * - Liked recipes
  */
 const state = {};
-window.s = state;
+
 // * controller for search
 const controlSearch = async () => {
 	// 1. get query from view
@@ -101,7 +101,6 @@ const controlRecipe = async () => {
 
 const controlList = () => {
 	// create a new list if there is none yet
-	debugger;
 	if(!state.list) state.list =  new List();
 
 	// add ingredients to list
