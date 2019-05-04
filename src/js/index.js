@@ -109,7 +109,11 @@ const controlList = () => {
 		const item = state.list.addItem(parseFloat(el.count), el.unit, el.ingredient);
 		// render item to shopping list
 		listView.renderItem(item);
-	})
+	}) else if(e.target.matches('.shopping__count-value')) {
+		const val = parseFloat(e.target.value);
+
+		state.list.updateCount(id, val);
+	}
 }
 
 // handle delete and update shopping list items
