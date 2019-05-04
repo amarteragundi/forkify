@@ -96,6 +96,9 @@ const controlRecipe = async () => {
 	}
 }
 
+// * controller to fetch and display ingredients in shopping list
+
+
 // event listeners
 ['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe));
 
