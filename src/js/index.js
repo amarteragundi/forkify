@@ -28,7 +28,6 @@ const controlSearch = async () => {
 		// 2. New search object and add it to state
 		
 		state.search = new Search(query);
-		console.log(state.search);
 
 		// 3. prepare UI for results
 		searchView.clearInput();
@@ -65,7 +64,6 @@ elements.searchResPages.addEventListener('click', e => {
 const controlRecipe = async () => {
 	//  get id from url
 	const id = window.location.hash.replace('#', '');
-	console.log(id);
 
 	if(id){
 		// prepare UI for changes
@@ -77,7 +75,6 @@ const controlRecipe = async () => {
 
 		// create new Recipe object
 		state.recipe = new Recipe(id);
-		window.r = state.recipe;
 
 		try{
 			// get recipe data and parse ingredients
@@ -115,7 +112,6 @@ const controlList = () => {
 	})
 }
 
-state.likes = new Likes();
 
 // * controller to fetch and display liked recipes
 const controlLike = () => {
@@ -138,7 +134,6 @@ const controlLike = () => {
 	} else {
 		// remove like to state
 		state.likes.deleteLike(currentID)
-		console.log(state.likes)
 		// toggle the like button
 		likesView.toggleLikeBtn(false);
 
@@ -171,6 +166,19 @@ elements.shoppingList.addEventListener('click', e => {
 // event listeners
 ['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe));
 
+// restore liked recipes on page load
+window.addEventListener('load', () => {
+	state.likes = new Likes();
+	state.likes.readStorage();
+
+	// toggle like buttons
+	likesView.toggleLikeMenu(state.likes.getNumLikes())
+
+	//  render existing likes
+	state.likes.likes.forEach(like => likesView.renderLike(like))
+})
+
+
 // handling recipe buttons events
 elements.recipe.addEventListener('click', e => {
 	if(e.target.matches('.btn-decrease, .btn-decrease *')){
@@ -189,6 +197,4 @@ elements.recipe.addEventListener('click', e => {
 	} else if(e.target.matches('.recipe__love, .recipe__love *')){
 		controlLike();
 	}
-
-	console.log(state.recipe)
 })
