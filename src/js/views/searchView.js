@@ -34,7 +34,6 @@ export const limitRecipeTitle = (title, limit = 17) => {
     return title;
 }
 const renderRecipe = recipe => {
-console.log(recipe);
 const markUp = `<li>
     <a class="likes__link" href="#${recipe.recipe_id}">
         <figure class="likes__fig">
@@ -82,7 +81,6 @@ const renderButtons = (page, numResults, resPerPage) => {
 
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
     // render results of current page
-    console.log(recipes);
     const start = (page - 1) * resPerPage;
     const end = page * resPerPage;
 
