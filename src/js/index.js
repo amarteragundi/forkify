@@ -4,8 +4,9 @@ import Search from './models/Search';
 import * as searchView from './views/searchView';
 import { elements, renderLoader, clearloader } from './views/base';
 import Recipe from './models/Recipe';
-import List from './models/list';
+import List from './models/List';
 import * as recipeView from './views/recipeView';
+import * as listView from './views/listView';
 
 /** Global state of the app
  * - Search object
@@ -98,6 +99,32 @@ const controlRecipe = async () => {
 
 // * controller to fetch and display ingredients in shopping list
 
+const controlList = () => {
+	// create a new list if there is none yet
+	debugger;
+	if(!state.list) state.list =  new List();
+
+	// add ingredients to list
+	state.recipe.ingredients.forEach(el => {
+		const item = state.list.addItem(parseFloat(el.count), el.unit, el.ingredient);
+		// render item to shopping list
+		listView.renderItem(item);
+	})
+}
+
+// handle delete and update shopping list items
+elements.shoppingList.addEventListener('click', e => {
+	const id = e.target.closest('.shopping__item').dataset.itemid;
+
+	// delete ingredient
+	if(e.target.matches('.shopping__delete, .shopping__delete *')) {
+		// delete from state
+		state.list.deleteitem(id);
+
+		// delete from UI
+		listView.deleteItem(id);
+	}
+});
 
 // event listeners
 ['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe));
@@ -121,5 +148,3 @@ elements.recipe.addEventListener('click', e => {
 
 	console.log(state.recipe)
 })
-
-window.l = new List()
