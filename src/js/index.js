@@ -15,7 +15,7 @@ import * as listView from './views/listView';
  * - Liked recipes
  */
 const state = {};
-
+window.s = state;
 // * controller for search
 const controlSearch = async () => {
 	// 1. get query from view
@@ -109,11 +109,7 @@ const controlList = () => {
 		const item = state.list.addItem(parseFloat(el.count), el.unit, el.ingredient);
 		// render item to shopping list
 		listView.renderItem(item);
-	}) else if(e.target.matches('.shopping__count-value')) {
-		const val = parseFloat(e.target.value);
-
-		state.list.updateCount(id, val);
-	}
+	})
 }
 
 // handle delete and update shopping list items
@@ -127,6 +123,10 @@ elements.shoppingList.addEventListener('click', e => {
 
 		// delete from UI
 		listView.deleteItem(id);
+	} else if(e.target.matches('.shopping__count-value')) {
+		const val = parseFloat(e.target.value);
+
+		state.list.updateCount(id, val);
 	}
 });
 
