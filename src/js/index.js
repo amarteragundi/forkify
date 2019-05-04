@@ -4,6 +4,7 @@ import Search from './models/Search';
 import * as searchView from './views/searchView';
 import { elements, renderLoader, clearloader } from './views/base';
 import Recipe from './models/Recipe';
+import List from './models/list';
 import * as recipeView from './views/recipeView';
 
 /** Global state of the app
@@ -111,7 +112,11 @@ elements.recipe.addEventListener('click', e => {
 		// increas was clicked
 		state.recipe.updateServings('inc');
 		recipeView.updateServingsIngredients(state.recipe)
+	} else if(e.target.matches('.recipe__btn--add, .recipe__btn--add *')){
+		controlList();
 	}
 
 	console.log(state.recipe)
 })
+
+window.l = new List()
