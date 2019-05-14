@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/amarteragundi/forkify/issues"
   },
-  "homepage": "https://github.com/amarteragundi/forkify#readme",
+  "homepage": "http://amarteragundi.github.io/forkify",
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
@@ -31,6 +33,7 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "fractional": "^1.0.0",
+    "gh-pages": "^2.0.1",
     "uniqid": "^5.0.3"
   }
 }
